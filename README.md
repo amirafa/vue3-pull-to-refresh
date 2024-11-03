@@ -30,5 +30,5 @@ To prevent conflicts with the native refresh mechanism on Chrome Mobile, add the
 
 ```css
 body {
-  overflow-behaviour: none;
+  overfscroll-behaviour: none;
 }
