@@ -52,8 +52,8 @@ Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue
 
 <script setup lang="ts">
 //@ts-ignore
-import Vue3PullToRefresh from 'vue3-pull-to-refresh';
-import 'vue3-pull-to-refresh/dist/style.css';
+import Vue3PullToRefresh from '@amirafa/vue3-pull-to-refresh';
+import '@amirafa/vue3-pull-to-refresh/dist/style.css';
 </script>
 ```
 ### Note on `@ts-ignore`
