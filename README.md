@@ -11,7 +11,7 @@ npm i @amirafa/vue3-pull-to-refresh
 
 ## Usage
 
-## Props
+### Props
 
 | Prop       | Type            | Default | Description                                        |
 |------------|-----------------|---------|----------------------------------------------------|
@@ -28,10 +28,10 @@ npm i @amirafa/vue3-pull-to-refresh
 | `bgColor`  | `String` | `#ffffff` | The background color of the icon or element. |
 
 
+## Example Usage
 
 Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue 3 project:
 
-## Example Usage
 ```vue
 <template>
   <MyComponent 
@@ -47,7 +47,7 @@ Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue
 import Vue3PullToRefresh from 'vue3-pull-to-refresh';
 import 'vue3-pull-to-refresh/dist/style.css';
 </script>
-
+```
 ### Note on `@ts-ignore`
 To prevent TypeScript type-checking errors when importing third-party libraries that may lack complete type definitions, you can use `// @ts-ignore` above the import statement. This directive tells the TypeScript compiler to ignore the next line, avoiding potential type-related warnings or errors.
 
