@@ -1,6 +1,6 @@
 {
   "name": "vue3-pull-to-refresh",
-  "version": "2.0.6",
+  "version": "3.0.0",
   "type": "module",
   "files": [
     "dist"
@@ -20,6 +20,24 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amirafa/vue3-pull-to-refresh.git"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "pull-to-refresh",
+    "vue-component",
+    "refresh",
+    "ui-component"
+  ],
+  "author": "Amirafa <amir.h.rafati@gmai;.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amirafa/vue3-pull-to-refresh/issues"
+  },
+  "homepage": "https://github.com/amirafa/vue3-pull-to-refresh#readme",
   "dependencies": {
     "vue": "^3.5.12"
   },
