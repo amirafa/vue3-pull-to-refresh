@@ -15,17 +15,17 @@ npm i @amirafa/vue3-pull-to-refresh
 
 | Prop       | Type            | Default | Description                                        |
 |------------|-----------------|---------|----------------------------------------------------|
-| `distance` | `Number`        | `0`     | Specifies the height of pulling.                   |
-| `duration` | `Number`        | `300`   | Delay (in milliseconds) since the refresh action.  |
-| `size`     | `Number`        | `24`    | Size of the icon (in pixels).                      |
+| `distance` | `Number`        | `50`     | Specifies the height of pulling.                   |
+| `duration` | `Number`        | `2000`   | Delay (in milliseconds) since the refresh action.  |
+| `size`     | `Number`        | `32`    | Size of the icon (in pixels).                      |
 | `options`  | `Object`        | `{}`    | Customization options for icon color and background color. |
 
 ### Options Object Properties
 
 | Property   | Type     | Default   | Description                                  |
 |------------|----------|-----------|----------------------------------------------|
-| `color`    | `String` | `#000000` | The color of the icon.                       |
-| `bgColor`  | `String` | `#ffffff` | The background color of the icon or element. |
+| `color`    | `String` | `#000` | The color of the icon.                       |
+| `bgColor`  | `String` | `#fff` | The background color of the icon or element. |
 
 
 ## Example Usage
