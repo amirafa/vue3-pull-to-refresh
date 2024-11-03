@@ -8,9 +8,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
-      name: 'VueComponentNpmExample',
+      name: 'PulToRefresh',
       // the proper extensions will be added
-      fileName: 'vue-component-npm-example'
+      fileName: 'vue3-pull-to-refresh'
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

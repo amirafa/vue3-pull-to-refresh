@@ -9,6 +9,6 @@ import PullToRefresh from "../lib/PullToRefresh.vue";
 <style>
 body {
     overscroll-behavior: none;
-    background-color: aqua;
+    background-color: black;
 }
 </style>
