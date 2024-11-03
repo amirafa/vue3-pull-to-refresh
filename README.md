@@ -1,5 +1,34 @@
-# Vue 3 + TypeScript + Vite
+# Vue 3 Pull-to-Refresh
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A Vue 3 package that enables a pull-to-refresh experience for touch screens.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Installation
+
+To install the package, use the following command:
+```bash
+npm i @amirafa/vue3-pull-to-refresh
+```
+
+## Usage
+
+Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue 3 project:
+
+```vue
+<template>
+  <Vue3PullToRefresh />
+</template>
+
+<script setup lang="ts">
+import Vue3PullToRefresh from 'vue3-pull-to-refresh';
+import 'vue3-pull-to-refresh/dist/style.css';
+</script>
+```
+
+## Preventing Interference with Chrome Mobile Refresh
+
+To prevent conflicts with the native refresh mechanism on Chrome Mobile, add the following CSS to the `body`:
+
+```css
+body {
+  overflow-behaviour: none;
+}
