@@ -23,8 +23,8 @@ npm i @amirafa/vue3-pull-to-refresh
 
 ### Emit
 
-| emit        |  callback                                                                     |
-|-------------|---------------------------|---------------------------------------------------|
+| Emit        | Callback                                                                     |
+|-------------|-------------------------------------------------------------------------------|
 | `onrefresh` | `Emit after refreshing`                                                       |
 
 ### Options Object Properties
