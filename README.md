@@ -13,17 +13,18 @@ npm i @amirafa/vue3-pull-to-refresh
 
 ### Props
 
-| Prop       | Type            | Default | Description                                        |
-|------------|-----------------|---------|----------------------------------------------------|
-| `distance` | `Number`        | `50`     | Specifies the height of pulling.                  |
-| `duration` | `Number`        | `2000`   | Delay (in milliseconds) since the refresh action. |
-| `size`     | `Number`        | `32`     | Size of the icon (in pixels).                     |
-| `reload`   | `Boolean`       | `true`   | Reload window on refresh                          |
-| `options`  | `Object`        | `{}`     | Customization options for icon color and background color. |
+| Prop          | Type            | Default | Description                                        |
+|---------------|-----------------|---------|----------------------------------------------------|
+| `distance`    | `Number`        | `50`    | Specifies the height of pulling.                   |
+| `duration`    | `Number`        | `2000`  | Delay (in milliseconds) since the refresh action.  |
+| `size`        | `Number`        | `32`    | Size of the icon (in pixels).                      |
+| `coefficient` | `Number`        | `2.5`   | Power of reaching the distance.                    |
+| `noreload`    | `Boolean`       | `false` | Reload window on refresh.                          |
+| `options`     | `Object`        | `{}`    | Customization options for icon color and background color. |
 
 ### Emit
 
-| Emit        | Callback                                                                     |
+| Emit        | Callback                                                                      |
 |-------------|-------------------------------------------------------------------------------|
 | `onrefresh` | `Emit after refreshing`                                                       |
 
@@ -31,8 +32,8 @@ npm i @amirafa/vue3-pull-to-refresh
 
 | Property   | Type     | Default   | Description                                  |
 |------------|----------|-----------|----------------------------------------------|
-| `color`    | `String` | `#000` | The color of the icon.                       |
-| `bgColor`  | `String` | `#fff` | The background color of the icon or element. |
+| `color`    | `String` | `#000` | The color of the icon.                          |
+| `bgColor`  | `String` | `#fff` | The background color of the icon or element.    |
 
 
 ## Example Usage
@@ -41,10 +42,11 @@ Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue
 
 ```vue
 <template>
-  <MyComponent 
-    :distance="100" 
-    :duration="500" 
-    :size="36" 
+  <Vue3PullToRefresh 
+    :distance="50" 
+    :duration="2000" 
+    :size="32" 
+    noreload
     :options="{ color: '#ff6347', bgColor: '#f0f0f0' }"
     @onrefresh="()=>{console.log('refreshed')}"
   />
