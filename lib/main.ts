@@ -1,3 +1,3 @@
-import PullToRefresh from './PullToRefresh.vue'
+import Vue3PullToRefresh from './Vue3PullToRefresh.vue';
 
-export { PullToRefresh }
+export default Vue3PullToRefresh;

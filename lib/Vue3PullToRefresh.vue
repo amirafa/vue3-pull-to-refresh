@@ -73,10 +73,10 @@ const props = defineProps({
     },
     options: {
         type: Object as PropType<OPTIONS>,
-        default: {
+        default: () => ({
             color: "#000",
             bgColor: "#fff",
-        },
+        }),
     },
 });
 
