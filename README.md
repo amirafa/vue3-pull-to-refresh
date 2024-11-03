@@ -15,10 +15,17 @@ npm i @amirafa/vue3-pull-to-refresh
 
 | Prop       | Type            | Default | Description                                        |
 |------------|-----------------|---------|----------------------------------------------------|
-| `distance` | `Number`        | `50`     | Specifies the height of pulling.                   |
-| `duration` | `Number`        | `2000`   | Delay (in milliseconds) since the refresh action.  |
-| `size`     | `Number`        | `32`    | Size of the icon (in pixels).                      |
-| `options`  | `Object`        | `{}`    | Customization options for icon color and background color. |
+| `distance` | `Number`        | `50`     | Specifies the height of pulling.                  |
+| `duration` | `Number`        | `2000`   | Delay (in milliseconds) since the refresh action. |
+| `size`     | `Number`        | `32`     | Size of the icon (in pixels).                     |
+| `reload`   | `Boolean`       | `true`   | Reload window on refresh                          |
+| `options`  | `Object`        | `{}`     | Customization options for icon color and background color. |
+
+### Emit
+
+| emit        |  callback                                                                     |
+|-------------|---------------------------|---------------------------------------------------|
+| `onrefresh` | `Emit after refreshing`                                                       |
 
 ### Options Object Properties
 
@@ -38,7 +45,8 @@ Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue
     :distance="100" 
     :duration="500" 
     :size="36" 
-    :options="{ color: '#ff6347', bgColor: '#f0f0f0' }" 
+    :options="{ color: '#ff6347', bgColor: '#f0f0f0' }"
+    @onrefresh="()=>{console.log('refreshed')}"
   />
 </template>
 
