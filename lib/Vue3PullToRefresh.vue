@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div ref="wrapperRef" class="wrapper">
         <div
             class="container"
             @touchstart="onTouchStart"
@@ -54,6 +54,8 @@ type OPTIONS = {
     bgColor: string;
 };
 
+const emit = defineEmits(["onrefresh"]);
+
 const props = defineProps({
     distance: {
         type: Number,
@@ -70,6 +72,10 @@ const props = defineProps({
     coefficient: {
         type: Number,
         default: 2.5,
+    },
+    reload: {
+        type: Boolean,
+        default: true,
     },
     options: {
         type: Object as PropType<OPTIONS>,
@@ -100,7 +106,8 @@ function onTouchEnd(e: TouchEvent) {
     if (height.value / ratio >= props.distance) {
         loading.value = true;
         setTimeout(() => {
-            location.reload();
+            emit("onrefresh");
+            if (props.reload) location.reload();
         }, props.duration);
     } else {
         loading.value = false;
