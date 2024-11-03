@@ -19,10 +19,14 @@ Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue
 </template>
 
 <script setup lang="ts">
+//@ts-ignore
 import Vue3PullToRefresh from 'vue3-pull-to-refresh';
 import 'vue3-pull-to-refresh/dist/style.css';
 </script>
 ```
+
+### Note on `@ts-ignore`
+To prevent TypeScript type-checking errors when importing third-party libraries that may lack complete type definitions, you can use `// @ts-ignore` above the import statement. This directive tells the TypeScript compiler to ignore the next line, avoiding potential type-related warnings or errors.
 
 ## Preventing Interference with Chrome Mobile Refresh
 
