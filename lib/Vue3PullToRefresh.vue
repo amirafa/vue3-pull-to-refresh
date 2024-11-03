@@ -1,5 +1,5 @@
 <template>
-    <div ref="wrapperRef" class="wrapper">
+    <div class="outer-container" ref="outerContainerRef">
         <div
             class="container"
             @touchstart="onTouchStart"
@@ -7,39 +7,22 @@
             @touchend="onTouchEnd"
         >
             <div :style="containerStyle" class="inner-container">
-                <div
-                    class="refresh-icon-container"
-                    :style="{
-                        top: `${containerHeight * 1.5}px`,
-                        backgroundColor: options.bgColor,
-                    }"
-                >
-                    <svg
-                        v-if="!loading"
-                        :style="iconStyle"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="1em"
-                        height="1em"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            :fill="options.color"
-                            d="M17.65 6.35a7.95 7.95 0 0 0-6.48-2.31c-3.67.37-6.69 3.35-7.1 7.02C3.52 15.91 7.27 20 12 20a7.98 7.98 0 0 0 7.21-4.56c.32-.67-.16-1.44-.9-1.44c-.37 0-.72.2-.88.53a5.994 5.994 0 0 1-6.8 3.31c-2.22-.49-4.01-2.3-4.48-4.52A6.002 6.002 0 0 1 12 6c1.66 0 3.14.69 4.22 1.78l-1.51 1.51c-.63.63-.19 1.71.7 1.71H19c.55 0 1-.45 1-1V6.41c0-.89-1.08-1.34-1.71-.71z"
-                        />
-                    </svg>
-                    <svg
-                        v-if="loading"
-                        :style="spinIconStyle"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="1em"
-                        height="1em"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            fill="options.color"
-                            d="M17.65 6.35a7.95 7.95 0 0 0-6.48-2.31c-3.67.37-6.69 3.35-7.1 7.02C3.52 15.91 7.27 20 12 20a7.98 7.98 0 0 0 7.21-4.56c.32-.67-.16-1.44-.9-1.44c-.37 0-.72.2-.88.53a5.994 5.994 0 0 1-6.8 3.31c-2.22-.49-4.01-2.3-4.48-4.52A6.002 6.002 0 0 1 12 6c1.66 0 3.14.69 4.22 1.78l-1.51 1.51c-.63.63-.19 1.71.7 1.71H19c.55 0 1-.45 1-1V6.41c0-.89-1.08-1.34-1.71-.71z"
-                        />
-                    </svg>
+                <div class="icon-container" :style="iconContainerStyle">
+                    <div :style="loading ? spinIconStyle : iconStyle">
+                        <slot>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                :width="size"
+                                :height="size"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    :fill="options.color"
+                                    d="M17.65 6.35a7.95 7.95 0 0 0-6.48-2.31c-3.67.37-6.69 3.35-7.1 7.02C3.52 15.91 7.27 20 12 20a7.98 7.98 0 0 0 7.21-4.56c.32-.67-.16-1.44-.9-1.44c-.37 0-.72.2-.88.53a5.994 5.994 0 0 1-6.8 3.31c-2.22-.49-4.01-2.3-4.48-4.52A6.002 6.002 0 0 1 12 6c1.66 0 3.14.69 4.22 1.78l-1.51 1.51c-.63.63-.19 1.71.7 1.71H19c.55 0 1-.45 1-1V6.41c0-.89-1.08-1.34-1.71-.71z"
+                                />
+                            </svg>
+                        </slot>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,9 +56,9 @@ const props = defineProps({
         type: Number,
         default: 2.5,
     },
-    reload: {
+    noreload: {
         type: Boolean,
-        default: true,
+        default: false,
     },
     options: {
         type: Object as PropType<OPTIONS>,
@@ -102,12 +85,13 @@ function onTouchMove(e: TouchEvent) {
     go.value = e.touches[0].clientY;
 }
 
-function onTouchEnd(e: TouchEvent) {
+function onTouchEnd() {
     if (height.value / ratio >= props.distance) {
         loading.value = true;
         setTimeout(() => {
+            loading.value = false;
             emit("onrefresh");
-            if (props.reload) location.reload();
+            if (!props.noreload) location.reload();
         }, props.duration);
     } else {
         loading.value = false;
@@ -133,22 +117,36 @@ const containerStyle = computed(() => {
     };
 });
 
-const spinIconStyle = computed(() => {
-    return {
-        transform: `rotate(${deg.value * -1}deg)`,
-        animation: "spin 1s linear infinite",
-        width: `${props.size}px`,
-        height: `${props.size}px`,
-    };
-});
+const iconContainerStyle = computed(() => ({
+    top: `${containerHeight.value * 1.5}px`,
+    width: `${props.size}px`,
+    height: `${props.size}px`,
+    backgroundColor: props.options.bgColor,
+    transform: `translateY(-100%)`,
+}));
 
 const iconStyle = computed(() => {
     const rel = 360 / props.distance;
     deg.value = normalizeDegrees(containerHeight.value * rel);
     return {
         transform: `rotate(${deg.value}deg)`,
-        width: `${props.size}px`,
-        height: `${props.size}px`,
+        width: `100%`,
+        height: `100%`,
+        display: `flex`,
+        justifyContent: "center",
+        alignItems: "center",
+    };
+});
+
+const spinIconStyle = computed(() => {
+    return {
+        transform: `rotate(${deg.value * -1}deg)`,
+        animation: "spin 1s linear infinite",
+        width: `100%`,
+        height: `100%`,
+        display: `flex`,
+        justifyContent: "center",
+        alignItems: "center",
     };
 });
 
@@ -158,7 +156,7 @@ function normalizeDegrees(degrees: number) {
 </script>
 
 <style>
-.wrapper {
+.outer-container {
     position: absolute;
     top: 0;
     right: 0;
@@ -175,16 +173,13 @@ function normalizeDegrees(degrees: number) {
     position: relative;
     display: flex;
     justify-content: center;
-    transition: all 75ms linear;
+    transition: all 70ms linear;
 }
 
-.refresh-icon-container {
+.icon-container {
     position: absolute;
-    width: 32px;
-    height: 32px;
     padding: 4px;
     border-radius: 9999px;
-    transform: translateY(-100%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
