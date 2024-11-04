@@ -90,6 +90,8 @@ function onTouchEnd() {
         loading.value = true;
         setTimeout(() => {
             loading.value = false;
+            start.value = 0;
+            go.value = 0;
             emit("onrefresh");
             if (!props.noreload) location.reload();
         }, props.duration);
@@ -123,6 +125,7 @@ const iconContainerStyle = computed(() => ({
     height: `${props.size}px`,
     backgroundColor: props.options.bgColor,
     transform: `translateY(-100%)`,
+    zIndex: `999`
 }));
 
 const iconStyle = computed(() => {
@@ -162,6 +165,7 @@ function normalizeDegrees(degrees: number) {
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 999;
 }
 
 .container {
