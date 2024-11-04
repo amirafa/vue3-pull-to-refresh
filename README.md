@@ -22,12 +22,6 @@ npm i @amirafa/vue3-pull-to-refresh
 | `noreload`    | `Boolean`       | `false` | Reload window on refresh.                          |
 | `options`     | `Object`        | `{}`    | Customization options for icon color and background color. |
 
-### Emit
-
-| Emit        | Callback                                                                      |
-|-------------|-------------------------------------------------------------------------------|
-| `onrefresh` | `Emit after refreshing`                                                       |
-
 ### Options Object Properties
 
 | Property   | Type     | Default   | Description                                  |
@@ -35,6 +29,11 @@ npm i @amirafa/vue3-pull-to-refresh
 | `color`    | `String` | `#000` | The color of the icon.                          |
 | `bgColor`  | `String` | `#fff` | The background color of the icon or element.    |
 
+### Emit
+
+| Emit        | Callback                                                                      |
+|-------------|-------------------------------------------------------------------------------|
+| `onrefresh` | `Emit after refreshing`                                                       |
 
 ## Example Usage
 
@@ -47,7 +46,7 @@ Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue
     :duration="2000" 
     :size="32" 
     noreload
-    :options="{ color: '#ff6347', bgColor: '#f0f0f0' }"
+    :options="{ color: '#111', bgColor: '#fff' }"
     @onrefresh="()=>{console.log('refreshed')}"
   />
 </template>
