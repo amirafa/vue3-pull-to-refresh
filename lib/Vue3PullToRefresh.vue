@@ -1,36 +1,27 @@
 <template>
-    <div class="outer-container" ref="outerContainerRef">
-        <div
-            class="container"
-            @touchstart="onTouchStart"
-            @touchmove="onTouchMove"
-            @touchend="onTouchEnd"
-        >
-            <div :style="containerStyle" class="inner-container">
-                <div class="icon-container" :style="iconContainerStyle">
-                    <div :style="loading ? spinIconStyle : iconStyle">
-                        <slot>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                :width="size"
-                                :height="size"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    :fill="options.color"
-                                    d="M17.65 6.35a7.95 7.95 0 0 0-6.48-2.31c-3.67.37-6.69 3.35-7.1 7.02C3.52 15.91 7.27 20 12 20a7.98 7.98 0 0 0 7.21-4.56c.32-.67-.16-1.44-.9-1.44c-.37 0-.72.2-.88.53a5.994 5.994 0 0 1-6.8 3.31c-2.22-.49-4.01-2.3-4.48-4.52A6.002 6.002 0 0 1 12 6c1.66 0 3.14.69 4.22 1.78l-1.51 1.51c-.63.63-.19 1.71.7 1.71H19c.55 0 1-.45 1-1V6.41c0-.89-1.08-1.34-1.71-.71z"
-                                />
-                            </svg>
-                        </slot>
-                    </div>
-                </div>
+    <div :style="containerStyle" class="container">
+        <div class="icon-container" :style="iconContainerStyle">
+            <div :style="loading ? spinIconStyle : iconStyle">
+                <slot>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        :width="size"
+                        :height="size"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            :fill="options.color"
+                            d="M17.65 6.35a7.95 7.95 0 0 0-6.48-2.31c-3.67.37-6.69 3.35-7.1 7.02C3.52 15.91 7.27 20 12 20a7.98 7.98 0 0 0 7.21-4.56c.32-.67-.16-1.44-.9-1.44c-.37 0-.72.2-.88.53a5.994 5.994 0 0 1-6.8 3.31c-2.22-.49-4.01-2.3-4.48-4.52A6.002 6.002 0 0 1 12 6c1.66 0 3.14.69 4.22 1.78l-1.51 1.51c-.63.63-.19 1.71.7 1.71H19c.55 0 1-.45 1-1V6.41c0-.89-1.08-1.34-1.71-.71z"
+                        />
+                    </svg>
+                </slot>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, PropType, ref } from "vue";
+import { computed, onMounted, onUnmounted, PropType, ref } from "vue";
 
 type OPTIONS = {
     color: string;
@@ -75,14 +66,35 @@ const windowSize = window.innerHeight;
 const ratio = windowSize / props.distance / props.coefficient;
 const loading = ref<boolean>(false);
 const deg = ref<number>(0);
+// const touching = ref<boolean>(false);
+// const dragThreshold = 10;
+
+onMounted(() => {
+    window.addEventListener("touchstart", onTouchStart);
+    window.addEventListener("touchmove", onTouchMove);
+    window.addEventListener("touchend", onTouchEnd);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("touchstart", onTouchStart);
+    window.removeEventListener("touchmove", onTouchMove);
+    window.removeEventListener("touchend", onTouchEnd);
+});
 
 function onTouchStart(e: TouchEvent) {
     start.value = e.touches[0].clientY;
     go.value = e.touches[0].clientY;
+
+    // touching.value = false;
 }
 
 function onTouchMove(e: TouchEvent) {
     go.value = e.touches[0].clientY;
+
+    // const dragDistance = Math.abs(go.value - start.value);
+    // if (dragDistance > dragThreshold) {
+    //     touching.value = true;
+    // }
 }
 
 function onTouchEnd() {
@@ -90,13 +102,13 @@ function onTouchEnd() {
         loading.value = true;
         setTimeout(() => {
             loading.value = false;
-            start.value = 0;
-            go.value = 0;
+            // touching.value = false;
             emit("onrefresh");
             if (!props.noreload) location.reload();
         }, props.duration);
     } else {
         loading.value = false;
+        // touching.value = false;
         start.value = 0;
         go.value = 0;
     }
@@ -125,7 +137,6 @@ const iconContainerStyle = computed(() => ({
     height: `${props.size}px`,
     backgroundColor: props.options.bgColor,
     transform: `translateY(-100%)`,
-    zIndex: `999`
 }));
 
 const iconStyle = computed(() => {
@@ -159,22 +170,12 @@ function normalizeDegrees(degrees: number) {
 </script>
 
 <style>
-.outer-container {
+.container {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
     left: 0;
-    z-index: 999;
-}
-
-.container {
-    width: 100%;
-    height: 100vh;
-}
-
-.inner-container {
-    position: relative;
+    bottom: 0;
     display: flex;
     justify-content: center;
     transition: all 70ms linear;
