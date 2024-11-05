@@ -73,7 +73,7 @@ body {
 ## Changelog
 
 ### [Version 1.2.1] - 2024-11-06
-#### Added
-- Fix the interference with touch clicks
+#### Fixed
+- bug on interference with touch clicks
 
 ---
