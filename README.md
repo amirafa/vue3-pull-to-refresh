@@ -68,3 +68,11 @@ To prevent conflicts with the native refresh mechanism on Chrome Mobile, add the
 body {
   overscroll-behavior: none;
 }
+
+## Changelog
+
+### [Version 1.2.1] - 2024-11-06
+#### Added
+- Fix the interference with touch clicks
+
+---
