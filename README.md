@@ -72,6 +72,14 @@ body {
 
 ## Changelog
 
+### [Version 1.2.2] - 2024-11-06
+#### Added
+- Github packages config
+
+### [Version 1.2.1] - 2024-11-06
+#### Updated
+- add ChangeLog to README
+
 ### [Version 1.2.1] - 2024-11-06
 #### Fixed
 - bug on interference with touch clicks
