@@ -25,7 +25,7 @@
     "url": "https://github.com/amirafa/vue3-pull-to-refresh.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "keywords": [
     "vue",
