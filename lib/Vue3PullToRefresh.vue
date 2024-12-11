@@ -1,6 +1,6 @@
 <template>
     <div :style="containerStyle" class="container">
-        <div class="icon-container" :style="iconContainerStyle">
+        <div class="icon-container transition-all" :style="iconContainerStyle">
             <div :style="loading ? spinIconStyle : iconStyle">
                 <slot>
                     <svg
@@ -22,6 +22,7 @@
 
 <script lang="ts" setup>
 import { computed, onMounted, onUnmounted, PropType, ref } from "vue";
+import "./style.css";
 
 type OPTIONS = {
     color: string;
@@ -102,13 +103,13 @@ function onTouchEnd() {
         loading.value = true;
         setTimeout(() => {
             loading.value = false;
-            // touching.value = false;
+            start.value = 0;
+            go.value = 0;
             emit("onrefresh");
             if (!props.noreload) location.reload();
         }, props.duration);
     } else {
         loading.value = false;
-        // touching.value = false;
         start.value = 0;
         go.value = 0;
     }
@@ -168,32 +169,3 @@ function normalizeDegrees(degrees: number) {
     return ((degrees % 360) + 360) % 360;
 }
 </script>
-
-<style>
-.container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    transition: all 70ms linear;
-}
-
-.icon-container {
-    position: absolute;
-    padding: 4px;
-    border-radius: 9999px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-</style>
