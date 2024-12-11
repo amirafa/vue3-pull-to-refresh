@@ -60,7 +60,7 @@ Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue
 <script setup lang="ts">
 //@ts-ignore
 import Vue3PullToRefresh from '@amirafa/vue3-pull-to-refresh';
-import '@amirafa/vue3-pull-to-refresh/dist/style.css';
+//import '@amirafa/vue3-pull-to-refresh/dist/style.css'; deprecated
 </script>
 ```
 ### Note on `@ts-ignore`
@@ -77,6 +77,10 @@ body {
 ```
 
 ## Changelog
+
+### [Version 1.2.7] - 2024-11-06
+#### Updated
+- Remove requirement to import style.css
 
 ### [Version 1.2.2] - 2024-11-06
 #### Added

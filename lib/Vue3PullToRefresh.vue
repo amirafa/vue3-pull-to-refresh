@@ -22,7 +22,6 @@
 
 <script lang="ts" setup>
 import { computed, onMounted, onUnmounted, PropType, ref } from "vue";
-import "./style.css";
 
 type OPTIONS = {
     color: string;
@@ -169,3 +168,38 @@ function normalizeDegrees(degrees: number) {
     return ((degrees % 360) + 360) % 360;
 }
 </script>
+
+<style>
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    transition: all 70ms linear;
+}
+
+.icon-container {
+    position: absolute;
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+</style>
