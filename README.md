@@ -26,14 +26,20 @@ npm i @amirafa/vue3-pull-to-refresh
 
 | Property   | Type     | Default   | Description                                  |
 |------------|----------|-----------|----------------------------------------------|
-| `color`    | `String` | `#000` | The color of the icon.                          |
-| `bgColor`  | `String` | `#fff` | The background color of the icon or element.    |
+| `color`    | `String` | `#000`    | The color of the icon.                       |
+| `bgColor`  | `String` | `#fff`    | The background color of the icon or element. |
 
 ### Emit
 
-| Emit        | Callback                                                                      |
+| Emit        | Description                                                                      |
 |-------------|-------------------------------------------------------------------------------|
 | `onrefresh` | `Emit after refreshing`                                                       |
+
+### Slot
+
+| Slot        | Description                                                                   |
+|-------------|-------------------------------------------------------------------------------|
+| `default`   | `Customized Element for icon`                                                 |
 
 ## Example Usage
 
