@@ -63,8 +63,7 @@ Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue
 </template>
 
 <script setup lang="ts">
-//@ts-ignore
-import Vue3PullToRefresh from "@amirafa/vue3-pull-to-refresh";
+// import Vue3PullToRefresh from "@amirafa/vue3-pull-to-refresh"; deprecated 
 </script>
 ```
 
