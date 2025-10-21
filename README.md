@@ -84,7 +84,13 @@ body {
 
 ## Changelog
 
-### [Version 1.3.0] - 2025-10-21
+### [Version 1.2.9] - 2025-10-21
+
+#### Added
+
+-   Add playground
+
+### [Version 1.2.8] - 2025-10-21
 
 #### Updated
 
