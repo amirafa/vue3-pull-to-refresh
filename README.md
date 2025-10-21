@@ -19,7 +19,7 @@ npm i @amirafa/vue3-pull-to-refresh
 | `distance`    | `Number`  | `50`    | Specifies the height of pulling.                           |
 | `duration`    | `Number`  | `2000`  | Delay (in milliseconds) since the refresh action.          |
 | `size`        | `Number`  | `32`    | Size of the icon (in pixels).                              |
-| `coefficient` | `Number`  | `2.5`   | Power of reaching the distance.                            |
+| `ratio` | `Number`  | `2.5`   | Power of reaching the distance.                            |
 | `noreload`    | `Boolean` | `false` | Reload window on refresh.                                  |
 | `options`     | `Object`  | `{}`    | Customization options for icon color and background color. |
 

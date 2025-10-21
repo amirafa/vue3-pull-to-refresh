@@ -1,4 +1,3 @@
-import { resolve } from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import cssInjectedByJs from "vite-plugin-css-injected-by-js";
@@ -14,7 +13,7 @@ export default defineConfig({
     ],
     build: {
         lib: {
-            entry: resolve(__dirname, "lib/index.ts"),
+            entry: "lib/index.ts",
             name: "Vue3PulToRefresh",
             fileName: (format) => `index.${format}.js`,
             formats: ["es", "cjs"],

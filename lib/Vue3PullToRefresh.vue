@@ -43,7 +43,7 @@ const props = defineProps({
         type: Number,
         default: 32,
     },
-    coefficient: {
+    ratio: {
         type: Number,
         default: 2.5,
     },
@@ -63,7 +63,7 @@ const props = defineProps({
 const start = ref<number>(0);
 const go = ref<number>(0);
 const windowSize = window.innerHeight;
-const ratio = windowSize / props.distance / props.coefficient;
+const ratio = windowSize / props.distance / props.ratio;
 const loading = ref<boolean>(false);
 const deg = ref<number>(0);
 // const touching = ref<boolean>(false);
