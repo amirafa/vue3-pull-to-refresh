@@ -84,7 +84,7 @@ body {
 
 ## Changelog
 
-### [Version 1.3.0] - 2025-10-21
+### [Version 1.2.10] - 2025-10-21
 
 #### Updated
 
