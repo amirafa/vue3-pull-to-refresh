@@ -46,6 +46,7 @@
     "vue": "^3.4.0"
   },
   "devDependencies": {
+    "vite-plugin-css-injected-by-js": "^3.5.2",
     "@vitejs/plugin-vue": "^5.0.0",
     "javascript-obfuscator": "^4.1.1",
     "typescript": "^5.5.0",

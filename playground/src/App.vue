@@ -6,10 +6,13 @@
         :size="32"
         noreload
         :options="{ color: '#111', bgColor: '#fff' }"
-        @onrefresh="
-            () => {
-                console.log('refreshed');
-            }
-        "
+        @onrefresh="onRefresh"
     />
 </template>
+
+<script setup lang="ts">
+function onRefresh() {
+    console.log("refreshed");
+    alert("refresh");
+}
+</script>
