@@ -84,6 +84,12 @@ body {
 
 ## Changelog
 
+### [Version 1.3.0] - 2025-10-21
+
+#### Updated
+
+-   Rename `coefficient` to `ratio`
+
 ### [Version 1.2.9] - 2025-10-21
 
 #### Added
