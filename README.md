@@ -85,6 +85,12 @@ body {
 
 ## Changelog
 
+### [Version 1.3.0] - 2025-10-21
+
+#### Updated
+
+-   Remove requirement to import Vue3PullToRefresh from "@amirafa/vue3-pull-to-refresh";
+
 ### [Version 1.2.7] - 2024-11-06
 
 #### Updated
