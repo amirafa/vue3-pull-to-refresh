@@ -13,7 +13,3 @@
         "
     />
 </template>
-
-<script setup lang="ts">
-import Vue3PullToRefresh from "../lib/Vue3PullToRefresh.vue";
-</script>

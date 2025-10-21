@@ -5,13 +5,14 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vue3-pull-to-refresh.umd.cjs",
-  "module": "./dist/vue3-pull-to-refresh.js",
-  "types": "./dist/main.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vue3-pull-to-refresh.js",
-      "require": "./dist/vue3-pull-to-refresh.umd.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs"
     },
     "./dist/style.css": "./dist/style.css"
   },
@@ -41,15 +42,16 @@
     "url": "https://github.com/amirafa/vue3-pull-to-refresh/issues"
   },
   "homepage": "https://github.com/amirafa/vue3-pull-to-refresh#readme",
-  "dependencies": {
-    "vue": "^3.5.12"
+  "peerDependencies": {
+    "vue": "^3.4.0"
   },
   "devDependencies": {
-    "@types/node": "^18.19.64",
-    "@vitejs/plugin-vue": "^3.1.0",
-    "typescript": "^4.6.4",
-    "vite": "^3.1.0",
-    "vite-plugin-css-injected-by-js": "^3.5.2",
-    "vue-tsc": "^0.40.4"
+    "@vitejs/plugin-vue": "^5.0.0",
+    "javascript-obfuscator": "^4.1.1",
+    "typescript": "^5.5.0",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^4.0.0",
+    "vue": "^3.4.0",
+    "vue-tsc": "^2.0.0"
   }
 }
