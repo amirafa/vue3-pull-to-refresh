@@ -1,6 +1,6 @@
 {
   "name": "@amirafa/vue3-pull-to-refresh",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "type": "module",
   "files": [
     "dist"
