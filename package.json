@@ -1,7 +1,7 @@
 {
   "name": "@amirafa/vue3-pull-to-refresh",
   "description": "Lightweight Vue 3 package that enables a pull-to-refresh experience for touch screens.",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "type": "module",
   "files": [
     "dist"
