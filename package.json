@@ -36,7 +36,7 @@
     "refresh",
     "ui-component"
   ],
-  "author": "Amirafa <amir.h.rafati@gmai;.com>",
+  "author": "Amirafa <amir.h.rafati@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/amirafa/vue3-pull-to-refresh/issues"
