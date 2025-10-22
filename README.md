@@ -98,6 +98,12 @@ body {
 
 ### [Version 1.2.10] - 2025-10-21
 
+#### Added
+
+-   Add logo
+
+### [Version 1.2.10] - 2025-10-21
+
 #### Updated
 
 -   Rename `coefficient` to `ratio`
