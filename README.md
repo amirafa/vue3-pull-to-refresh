@@ -1,4 +1,16 @@
-# Vue 3 Pull-to-Refresh
+<p align="center">
+  <a href='https://postimages.org/' target='_blank'>
+    <img 
+      src='https://i.postimg.cc/PqqK5WcJ/Vue3-Pull-To-Refresh-logo.png'       
+      width="300" 
+      height="256"  
+      border='0' 
+      alt='vue3-pull-to-refresh-logo'
+    />
+  </a>
+</p>
+
+### Vue 3 Pull-to-Refresh
 
 A Vue 3 package that enables a pull-to-refresh experience for touch screens.
 
@@ -14,14 +26,14 @@ npm i @amirafa/vue3-pull-to-refresh
 
 ### Props
 
-| Prop          | Type      | Default | Description                                                |
-| ------------- | --------- | ------- | ---------------------------------------------------------- |
-| `distance`    | `Number`  | `50`    | Specifies the height of pulling.                           |
-| `duration`    | `Number`  | `2000`  | Delay (in milliseconds) since the refresh action.          |
-| `size`        | `Number`  | `32`    | Size of the icon (in pixels).                              |
-| `ratio` | `Number`  | `2.5`   | Power of reaching the distance.                            |
-| `noreload`    | `Boolean` | `false` | Reload window on refresh.                                  |
-| `options`     | `Object`  | `{}`    | Customization options for icon color and background color. |
+| Prop       | Type      | Default | Description                                                |
+| ---------- | --------- | ------- | ---------------------------------------------------------- |
+| `distance` | `Number`  | `50`    | Specifies the height of pulling.                           |
+| `duration` | `Number`  | `2000`  | Delay (in milliseconds) since the refresh action.          |
+| `size`     | `Number`  | `32`    | Size of the icon (in pixels).                              |
+| `ratio`    | `Number`  | `2.5`   | Power of reaching the distance.                            |
+| `noreload` | `Boolean` | `false` | Reload window on refresh.                                  |
+| `options`  | `Object`  | `{}`    | Customization options for icon color and background color. |
 
 ### Options Object Properties
 
@@ -63,7 +75,7 @@ Here's an example of how to use the `vue3-pull-to-refresh` component in your Vue
 </template>
 
 <script setup lang="ts">
-// import Vue3PullToRefresh from "@amirafa/vue3-pull-to-refresh"; deprecated 
+// import Vue3PullToRefresh from "@amirafa/vue3-pull-to-refresh"; deprecated
 </script>
 ```
 
