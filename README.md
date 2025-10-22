@@ -96,6 +96,10 @@ body {
 
 ## Changelog
 
+### [Version 1.2.12] - 2025-10-21
+
+-   Minor fixes
+
 ### [Version 1.2.11] - 2025-10-21
 
 #### Added
