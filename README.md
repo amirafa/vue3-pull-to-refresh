@@ -96,6 +96,10 @@ body {
 
 ## Changelog
 
+### [Version 1.2.13] - 2025-10-24
+
+-   Minor `package.json` fix
+
 ### [Version 1.2.12] - 2025-10-21
 
 -   Minor fixes
