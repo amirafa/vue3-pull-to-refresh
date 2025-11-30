@@ -96,7 +96,11 @@ body {
 
 ## Changelog
 
-### [Version 1.2.14] - 2025-10-24
+### [Version 1.2.15] - 2025-11-30
+
+-   Fix `box-shadow` on pulling
+
+### [Version 1.2.14] - 2025-11-30
 
 -   Add `z-index:999999`
 

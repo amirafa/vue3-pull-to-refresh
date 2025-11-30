@@ -66,7 +66,7 @@ const windowSize = window.innerHeight;
 const ratio = windowSize / props.distance / props.ratio;
 const loading = ref<boolean>(false);
 const deg = ref<number>(0);
-// const touching = ref<boolean>(false);
+const isPulling = ref<boolean>(false);
 // const dragThreshold = 10;
 
 onMounted(() => {
@@ -85,7 +85,7 @@ function onTouchStart(e: TouchEvent) {
     start.value = e.touches[0].clientY;
     go.value = e.touches[0].clientY;
 
-    // touching.value = false;
+    isPulling.value = true;
 }
 
 function onTouchMove(e: TouchEvent) {
@@ -104,10 +104,12 @@ function onTouchEnd() {
             loading.value = false;
             start.value = 0;
             go.value = 0;
+            isPulling.value = false;
             emit("onrefresh");
             if (!props.noreload) location.reload();
         }, props.duration);
     } else {
+        isPulling.value = false;
         loading.value = false;
         start.value = 0;
         go.value = 0;
@@ -137,6 +139,7 @@ const iconContainerStyle = computed(() => ({
     height: `${props.size}px`,
     backgroundColor: props.options.bgColor,
     transform: `translateY(-100%)`,
+    boxShadow: isPulling.value ? `0 4px 6px rgba(0, 0, 0, 0.1)` : `none`,
 }));
 
 const iconStyle = computed(() => {
@@ -186,7 +189,6 @@ function normalizeDegrees(degrees: number) {
     position: absolute;
     padding: 4px;
     border-radius: 9999px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .transition-all {
