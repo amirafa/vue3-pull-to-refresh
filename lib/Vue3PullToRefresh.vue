@@ -102,15 +102,18 @@ function onTouchEnd() {
         loading.value = true;
         setTimeout(() => {
             loading.value = false;
-            start.value = 0;
-            go.value = 0;
             isPulling.value = false;
             emit("onrefresh");
-            if (!props.noreload) location.reload();
+            if (props.noreload) {
+                start.value = 0;
+                go.value = 0;
+            } else {
+                location.reload();
+            }
         }, props.duration);
     } else {
-        isPulling.value = false;
         loading.value = false;
+        isPulling.value = false;
         start.value = 0;
         go.value = 0;
     }

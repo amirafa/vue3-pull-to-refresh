@@ -96,13 +96,17 @@ body {
 
 ## Changelog
 
+### [Version 1.2.16] - 2025-11-30
+
+-   Fix janking on `reload-mode`
+-   Fix `box-shadow` on pulling
+-   Add `z-index:999999`
+
 ### [Version 1.2.15] - 2025-11-30
 
 -   Fix `box-shadow` on pulling
 
 ### [Version 1.2.14] - 2025-11-30
-
--   Add `z-index:999999`
 
 ### [Version 1.2.13] - 2025-10-24
 
