@@ -172,6 +172,7 @@ function normalizeDegrees(degrees: number) {
 <style>
 .container {
     position: absolute;
+    z-index: 999999;
     top: 0;
     right: 0;
     left: 0;

@@ -96,6 +96,10 @@ body {
 
 ## Changelog
 
+### [Version 1.2.14] - 2025-10-24
+
+-   Add `z-index:999999`
+
 ### [Version 1.2.13] - 2025-10-24
 
 -   Minor `package.json` fix
