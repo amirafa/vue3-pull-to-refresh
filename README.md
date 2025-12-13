@@ -96,6 +96,10 @@ body {
 
 ## Changelog
 
+### [Version 1.2.17] - 2025-12-13
+
+-  Fix A high-severity vulnerability related to `validator.js`
+
 ### [Version 1.2.16] - 2025-11-30
 
 -   Fix janking on `reload-mode`
